@@ -101,7 +101,7 @@ function displayFileNames() {
     }
 }
 
-var baseUrl = 'https://face-recognition-sg4u.onrender.com/v1';
+var baseUrl = 'https://face-recognition-z3um.onrender.com/v1';
 
 function registerFace() {
     var fileInput = document.getElementById('imageInput');

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+        }
+        #video-webcam {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Image Uploader</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="#" method="post" enctype="multipart/form-data" id="imageForm">
+                            <div class="form-group">
+                                <label for="textInput" class="sr-only">Enter Username</label>
+                                <input type="text" class="form-control" id="textInput" name="text" placeholder="Enter username">
+                            </div>
+                            <div class="form-group">
+                                <label for="imageInput" class="btn btn-secondary btn-block">
+                                    Choose Images
+                                    <input type="file" class="form-control-file d-none" id="imageInput" name="images[]" accept="image/*" multiple onchange="displayFileNames()">
+                                </label>
+                            </div>
+                            <div id="fileNames"></div>
+                            <button type="button" class="btn btn-primary btn-block" onclick="registerFace()">Upload Images</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="jumbotron">
+                    <div id="open-camera" class="col-md-12 mx-auto">
+                        <button class="btn btn-primary btn-block" onclick="openCamera()">Open Camera</button>
+                    </div>
+                    <div id="take-snapshot" style="display: none;" class="col-md-12 mx-auto">
+                        <button class="btn btn-primary btn-block" onclick="takeSnapshot()">Take Snapshot</button>
+                    </div>
+                    <div class="col-md-12 mx-auto">
+                        <video style="display: none;" autoplay="true" id="video-webcam">
+                            Browser tidak mendukung!
+                        </video>
+                        <div id="snapshot" class="col-md-12 mx-auto" style="display: none;">
+                        </div>
+                        <div id="result-recognition" class="alert alert-success col-md-12 mx-auto" role="alert" style="display: none;">
+                            <h4 class="alert-heading">Face Recognized</h4>
+                            <div id="alert-body">
+                                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                                <p>Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Error</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="./scripts.js"></script>
+
+</body>
+
+</html>

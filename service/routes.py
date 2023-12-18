@@ -34,7 +34,7 @@ def open_image(contents):
     if image.mode != 'RGB':
         image = image.convert('RGB')
 
-    image.thumbnail((640, 640))
+    image.thumbnail((1024, 1024))
 
     return image
 
